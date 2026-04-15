@@ -1,0 +1,20 @@
+@page
+@model MiProyecto.Pages.Productos.IndexModel
+<h2>Inventario de Productos</h2>
+<a href="/Productos/Crear">+ Nuevo Producto</a>
+<table>
+    <tr><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
+    @foreach (var p in Model.Productos)
+    {
+        <tr>
+            <td>@p.Nombre</td>
+            <td>@p.Categoria</td>
+            <td>Q@p.Precio</td>
+            <td>@p.CantidadStock</td>
+            <td>
+                <a href="/Productos/Editar/@p.Id">Editar</a>
+                <a href="/Productos/Eliminar/@p.Id">Eliminar</a>
+            </td>
+        </tr>
+    }
+</table>
