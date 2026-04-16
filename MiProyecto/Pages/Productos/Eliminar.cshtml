@@ -1,0 +1,17 @@
+@page "/Productos/Eliminar/{id:int}"
+@model MiProyecto.Pages.Productos.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<h2>¿Estás seguro que deseas eliminar este producto?</h2>
+
+<p><strong>Nombre:</strong> @Model.Producto.Nombre</p>
+<p><strong>Categoría:</strong> @Model.Producto.Categoria</p>
+<p><strong>Precio:</strong> Q@Model.Producto.Precio</p>
+
+<form method="post">
+    <input type="hidden" name="id" value="@Model.Producto.Id" />
+    <button type="submit">Sí, eliminar</button>
+    <a href="/Productos">Cancelar</a>
+</form>

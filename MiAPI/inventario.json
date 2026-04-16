@@ -1,0 +1,11 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Leche Entera",
+    "Categoria": "Lacteos",
+    "Descripcion": "Leche entera 1 litro",
+    "Precio": 13.5,
+    "CantidadStock": 100,
+    "FechaVencimiento": "2026-02-20T00:00:00"
+  }
+]
