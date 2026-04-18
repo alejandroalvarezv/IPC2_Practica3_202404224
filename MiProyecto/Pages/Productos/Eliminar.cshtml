@@ -4,14 +4,30 @@
     ViewData["Title"] = "Eliminar Producto";
 }
 
-<h2>¿Estás seguro que deseas eliminar este producto?</h2>
-
-<p><strong>Nombre:</strong> @Model.Producto.Nombre</p>
-<p><strong>Categoría:</strong> @Model.Producto.Categoria</p>
-<p><strong>Precio:</strong> Q@Model.Producto.Precio</p>
-
-<form method="post">
-    <input type="hidden" name="id" value="@Model.Producto.Id" />
-    <button type="submit">Sí, eliminar</button>
-    <a href="/Productos">Cancelar</a>
-</form>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4>Eliminar Producto</h4>
+                </div>
+                <div class="card-body">
+                    <p class="lead">¿Estás seguro que deseas eliminar este producto?</p>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item"><strong>Nombre:</strong> @Model.Producto.Nombre</li>
+                        <li class="list-group-item"><strong>Categoría:</strong> @Model.Producto.Categoria</li>
+                        <li class="list-group-item"><strong>Precio:</strong> Q@Model.Producto.Precio</li>
+                        <li class="list-group-item"><strong>Stock:</strong> @Model.Producto.CantidadStock</li>
+                    </ul>
+                    <form method="post">
+                        <input type="hidden" name="id" value="@Model.Producto.Id" />
+                        <div class="d-flex justify-content-between">
+                            <a href="/Productos" class="btn btn-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

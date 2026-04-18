@@ -1,20 +1,55 @@
 @page
 @model MiProyecto.Pages.Productos.IndexModel
-<h2>Inventario de Productos</h2>
-<a href="/Productos/Crear">+ Nuevo Producto</a>
-<table>
-    <tr><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
-    @foreach (var p in Model.Productos)
+@{
+    ViewData["Title"] = "Inventario";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Inventario de Productos</h2>
+        <a href="/Productos/Crear" class="btn btn-success">+ Nuevo Producto</a>
+    </div>
+
+    @if (!Model.Productos.Any())
     {
-        <tr>
-            <td>@p.Nombre</td>
-            <td>@p.Categoria</td>
-            <td>Q@(p.Precio)</td>
-            <td>@p.CantidadStock</td>
-            <td>
-                <a href="/Productos/Editar/@p.Id">Editar</a>
-                <a href="/Productos/Eliminar/@p.Id">Eliminar</a>
-            </td>
-        </tr>
+        <div class="alert alert-info">No hay productos registrados.</div>
     }
-</table>
+    else
+    {
+        <table class="table table-striped table-hover shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model.Productos)
+                {
+                    <tr>
+                        <td>@p.Nombre</td>
+                        <td><span class="badge bg-secondary">@p.Categoria</span></td>
+                        <td>Q@(p.Precio)</td>
+                        <td>
+                            @if (p.CantidadStock <= 10)
+                            {
+                                <span class="badge bg-danger">@p.CantidadStock</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">@p.CantidadStock</span>
+                            }
+                        </td>
+                        <td>
+                            <a href="/Productos/Editar/@p.Id" class="btn btn-sm btn-primary">Editar</a>
+                            <a href="/Productos/Eliminar/@p.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

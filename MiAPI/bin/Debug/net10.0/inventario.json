@@ -1,11 +1,20 @@
 [
   {
     "Id": 1,
-    "Nombre": "Leche Entera",
+    "Nombre": "Leche",
     "Categoria": "Lacteos",
-    "Descripcion": "Leche entera 1 litro",
-    "Precio": 12.5,
-    "CantidadStock": 100,
-    "FechaVencimiento": "2026-02-20T00:00:00"
+    "Descripcion": "Leche entera",
+    "Precio": 12.49,
+    "CantidadStock": 29,
+    "FechaVencimiento": "2026-05-18T00:00:00"
+  },
+  {
+    "Id": 2,
+    "Nombre": "Jugo de Naranja ",
+    "Categoria": "Jugos",
+    "Descripcion": "Jugo de Naranja con Pulpa",
+    "Precio": 26.75,
+    "CantidadStock": 5,
+    "FechaVencimiento": "2026-08-25T00:00:00"
   }
 ]
